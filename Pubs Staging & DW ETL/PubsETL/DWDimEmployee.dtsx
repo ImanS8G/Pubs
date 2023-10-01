@@ -1,0 +1,1055 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/11/2023 3:29:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-FBLE0BS"
+  DTS:CreatorName="DESKTOP-FBLE0BS\ASUS"
+  DTS:DTSID="{A908C7F4-4ADE-45BB-B550-E195E3CE8950}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5209.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{6721B6CE-CBDA-4777-AB2B-33F6B20807CB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{40FFE70D-68E2-4E4A-937B-F66DCD8F2BE4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DimEmployee"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimEmployee"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DimEmployee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DimEmployee.Connections[OleDbConnection]"
+                  connectionManagerID="{3C2A5DA9-1D19-4866-B72D-F6484AA8C7E9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.PubsDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].Columns[fname]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="fname"
+                      externalMetadataColumnId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[fname]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[fname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].Columns[minit]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="minit"
+                      externalMetadataColumnId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[minit]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[minit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].Columns[lname]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="lname"
+                      externalMetadataColumnId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[lname]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[lname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].Columns[job_lvl]"
+                      cachedDataType="ui1"
+                      cachedName="job_lvl"
+                      externalMetadataColumnId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[job_lvl]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[job_lvl]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].Columns[hire_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="hire_date"
+                      externalMetadataColumnId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[hire_date]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[hire_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].Columns[JobKey]"
+                      cachedDataType="i4"
+                      cachedName="JobKey"
+                      externalMetadataColumnId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[JobKey]"
+                      lineageId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Match Output].Columns[JobKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].Columns[PubKey]"
+                      cachedDataType="i4"
+                      cachedName="PubKey"
+                      externalMetadataColumnId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[PubKey]"
+                      lineageId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Match Output].Columns[PubKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].Columns[emp_id]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="emp_id"
+                      externalMetadataColumnId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeAlternateKey]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[emp_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeKey]"
+                      dataType="i4"
+                      name="EmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeAlternateKey]"
+                      codePage="1256"
+                      dataType="str"
+                      length="9"
+                      name="EmployeeAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[JobKey]"
+                      dataType="i4"
+                      name="JobKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[PubKey]"
+                      dataType="i4"
+                      name="PubKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[fname]"
+                      codePage="1256"
+                      dataType="str"
+                      length="20"
+                      name="fname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[minit]"
+                      codePage="1256"
+                      dataType="str"
+                      length="1"
+                      name="minit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[lname]"
+                      codePage="1256"
+                      dataType="str"
+                      length="30"
+                      name="lname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[job_lvl]"
+                      dataType="ui1"
+                      name="job_lvl" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[hire_date]"
+                      dataType="dbTimeStamp"
+                      name="hire_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[Startdate]"
+                      dataType="dbTimeStamp"
+                      name="Startdate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input].ExternalColumns[Enddate]"
+                      dataType="dbTimeStamp"
+                      name="Enddate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DimEmployee.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimEmployee.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Get JobKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Get JobKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimJob]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimJob]) [refTable]
+where [refTable].[JobAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="JobKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JobAlternateKey" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="job_desc" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1256"/&gt;&lt;referenceColumn name="min_lvl" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="max_lvl" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Startdate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Enddate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[job_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Get JobKey.Connections[OleDbConnection]"
+                  connectionManagerID="{3C2A5DA9-1D19-4866-B72D-F6484AA8C7E9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.PubsDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Get JobKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Get JobKey.Inputs[Lookup Input].Columns[job_id]"
+                      cachedDataType="i2"
+                      cachedName="job_id"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[job_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">JobAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Get JobKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Match Output].Columns[JobKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Match Output].Columns[JobKey]"
+                      name="JobKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">JobKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Get JobKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Get JobKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Get JobKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Get PublisherKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Get PublisherKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPublisher]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPublisher]) [refTable]
+where [refTable].[PubAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PubKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PubAlternateKey" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1256"/&gt;&lt;referenceColumn name="GeographyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pub_name" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1256"/&gt;&lt;referenceColumn name="logo" dataType="DT_IMAGE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pr_info" dataType="DT_TEXT" length="0" precision="0" scale="0" codePage="1256"/&gt;&lt;referenceColumn name="Startdate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Enddate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[pub_id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Get PublisherKey.Connections[OleDbConnection]"
+                  connectionManagerID="{3C2A5DA9-1D19-4866-B72D-F6484AA8C7E9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.PubsDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Get PublisherKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Get PublisherKey.Inputs[Lookup Input].Columns[pub_id]"
+                      cachedCodepage="1256"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="pub_id"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[pub_id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">PubAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Get PublisherKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Match Output].Columns[PubKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Match Output].Columns[PubKey]"
+                      name="PubKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">PubKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Get PublisherKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Get PublisherKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\StagingEmployee"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="StagingEmployee"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StagingEmployee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\StagingEmployee.Connections[OleDbConnection]"
+                  connectionManagerID="{2580BA92-4E2C-4E9F-BBCD-E206EB79DE96}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.PubsStaging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[emp_id]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[emp_id]"
+                      length="9"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[emp_id]"
+                      name="emp_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[fname]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[fname]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[fname]"
+                      name="fname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[minit]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[minit]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[minit]"
+                      name="minit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[lname]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[lname]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[lname]"
+                      name="lname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[job_id]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[job_id]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[job_id]"
+                      name="job_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[job_lvl]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[job_lvl]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[job_lvl]"
+                      name="job_lvl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[pub_id]"
+                      codePage="1256"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[pub_id]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[pub_id]"
+                      name="pub_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[hire_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[hire_date]"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].Columns[hire_date]"
+                      name="hire_date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[emp_id]"
+                      codePage="1256"
+                      dataType="str"
+                      length="9"
+                      name="emp_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[fname]"
+                      codePage="1256"
+                      dataType="str"
+                      length="20"
+                      name="fname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[minit]"
+                      codePage="1256"
+                      dataType="str"
+                      length="1"
+                      name="minit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[lname]"
+                      codePage="1256"
+                      dataType="str"
+                      length="30"
+                      name="lname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[job_id]"
+                      dataType="i2"
+                      name="job_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[job_lvl]"
+                      dataType="ui1"
+                      name="job_lvl" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[pub_id]"
+                      codePage="1256"
+                      dataType="str"
+                      length="4"
+                      name="pub_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output].ExternalColumns[hire_date]"
+                      dataType="dbTimeStamp"
+                      name="hire_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[emp_id]"
+                      codePage="1256"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[emp_id]"
+                      name="emp_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[fname]"
+                      codePage="1256"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[fname]"
+                      name="fname" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[minit]"
+                      codePage="1256"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[minit]"
+                      name="minit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[lname]"
+                      codePage="1256"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[lname]"
+                      name="lname" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[job_id]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[job_id]"
+                      name="job_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[job_lvl]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[job_lvl]"
+                      name="job_lvl" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[pub_id]"
+                      codePage="1256"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[pub_id]"
+                      name="pub_id" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[hire_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[hire_date]"
+                      name="hire_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\Get PublisherKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Get JobKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
+              endId="Package\Data Flow Task\DimEmployee.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Get PublisherKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Get JobKey.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\StagingEmployee.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="438.576932508741,123.287881287675" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Data Flow Task\StagingEmployee"
+          TopLeft="278.576929024162,28.3484853333952" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Data Flow Task\DimEmployee"
+          TopLeft="316.269236883997,405.142430253641" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Data Flow Task\Get JobKey"
+          TopLeft="301.653851296951,133.257577195586" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="358.176929024162,69.9484853333952">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.07692227278949,63.3090918621906"
+              Start="0,0"
+              End="9.07692227278949,55.8090918621906">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.6545459310953" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.6545459310953"
+                    Point2="0,31.6545459310953"
+                    Point3="4,31.6545459310953" />
+                  <mssgle:LineSegment
+                    End="5.07692227278949,31.6545459310953" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.07692227278949,31.6545459310953"
+                    Point2="9.07692227278949,31.6545459310953"
+                    Point3="9.07692227278949,35.6545459310953" />
+                  <mssgle:LineSegment
+                    End="9.07692227278949,55.8090918621906" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Data Flow Task\Get PublisherKey"
+          TopLeft="304.730775747603,238.287575905279" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="367.253851296951,174.857577195586">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.6769244506514,63.4299987096931"
+              Start="0,0"
+              End="16.6769244506514,55.9299987096931">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.7149993548465" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.7149993548465"
+                    Point2="0,31.7149993548465"
+                    Point3="4,31.7149993548465" />
+                  <mssgle:LineSegment
+                    End="12.6769244506514,31.7149993548465" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.6769244506514,31.7149993548465"
+                    Point2="16.6769244506514,31.7149993548465"
+                    Point3="16.6769244506514,35.7149993548465" />
+                  <mssgle:LineSegment
+                    End="16.6769244506514,55.9299987096931" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.8529244934243,36.7149993548465,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
+          TopLeft="385.9000063158,279.887575905279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,125.254854348362"
+              Start="0,0"
+              End="0,117.754854348362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,117.754854348362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,53.0727396741808,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\StagingEmployee">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DimEmployee">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Get JobKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimJob]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Get PublisherKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPublisher]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
